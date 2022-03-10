@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export default function Model(props) {
+export default function B01(props) {
     const [hovered, setHover] = useState(false);
 
   const group = useRef();

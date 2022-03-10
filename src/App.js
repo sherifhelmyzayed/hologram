@@ -5,14 +5,12 @@ import { OrbitControls, Environment, ContactShadows } from "@react-three/drei";
 import { EffectComposer, BrightnessContrast } from '@react-three/postprocessing'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
-
-
-import Model from "./Components/Model";
-import ModelEarth from "./Components/ModelEarth"
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Navbar from "./Components/Navbar/Navbar";
 import B02 from "./Components/B02";
 import GoogleEarthMin from "./Components/GoogleEarthMin";
+import Model from "./Components/GoogleEarth";
+import B01 from "./Components/B01";
 
 extend({ OrbitControls });
 
@@ -78,28 +76,31 @@ export default function App() {
         enablePan={true}
         enableZoom={true}
         enableRotate={true}
-        autoRotate={false}
+        autoRotate={true}
         autoRotateSpeed={1}
         zoomSpeed={0.3}
-        minDistance={800}
-        maxDistance={2000}
+        minDistance={1200}
+        maxDistance={2200}
       ></OrbitControls>
       <Suspense  fallback={null}>
 
-          {/* <Dome /> */}
+          <Dome />
+          <B01 position={[-150, -200, -800]}/>
+          <B02  rotation={[0,Math.PI / -2,0]} position={[-150, -200, 0]} />
+          <B01 position={[-900, -200, -800]}/>
+          <B02  rotation={[0,Math.PI / -2,0]} position={[-900, -200, 0]} />
+          <B01 position={[-900, -200, 800]}/>
+          <B01 position={[-150, -200, 800]}/>
 
-        {/* <Model position={[-200, -200, 400]} /> */}
-        {/* <ModelEarth position={[200, -180, 400]} /> */}
-        <B02 position={[200, -200, 400]} />
-        <GoogleEarthMin  position={[200, -180, 400]} />
-        <EffectComposer>
+        <GoogleEarthMin scale={[1.3,1.3,1.3]}  position={[200, -180, 400]} />
+        {/* <EffectComposer>
           <BrightnessContrast brightness={0.1} contrast={.2} />
-        </EffectComposer>
+        </EffectComposer> */}
 
         <Environment preset="warehouse" background="./098_hdrmaps_com_free1.exr"/>
       </Suspense>
 
-      <directionalLight position={[-600, -500, 50]} intensity={.4}
+      <directionalLight position={[-600, -500, 50]} intensity={.1}
       />
       <group rotation={[0 , -1.6 , 0]} position={[206, 0, 212]} >
       <Box position={[-295, -175, 110]}free={true} floor={1} color={"orange"} />
