@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/hologram/static/css/main.e6c13ad2.css",
+    "main.js": "/hologram/static/js/main.416ac6be.js",
+    "static/js/787.b2ac214d.chunk.js": "/hologram/static/js/787.b2ac214d.chunk.js",
+    "static/media/Render114.jpg": "/hologram/static/media/Render114.5655ea8e145294023d0d.jpg",
+    "index.html": "/hologram/index.html",
+    "main.e6c13ad2.css.map": "/hologram/static/css/main.e6c13ad2.css.map",
+    "main.416ac6be.js.map": "/hologram/static/js/main.416ac6be.js.map",
+    "787.b2ac214d.chunk.js.map": "/hologram/static/js/787.b2ac214d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.416ac6be.js"
+  ]
+}
