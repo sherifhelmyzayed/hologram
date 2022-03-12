@@ -2,14 +2,10 @@ import React, { useRef, useState, Suspense } from "react";
 import * as THREE from "three";
 import { Canvas, extend, useLoader } from "@react-three/fiber";
 import { OrbitControls, Environment, ContactShadows } from "@react-three/drei";
-import { EffectComposer, BrightnessContrast } from '@react-three/postprocessing'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
-import Sidebar from "./Components/Sidebar/Sidebar";
-import Navbar from "./Components/Navbar/Navbar";
 import B02 from "./Components/B02";
 import GoogleEarthMin from "./Components/GoogleEarthMin";
-import Model from "./Components/GoogleEarth";
 import B01 from "./Components/B01";
 
 extend({ OrbitControls });
@@ -60,11 +56,11 @@ function Box(props) {
 export default function App() {
 
   // const [floor, setFloor] = useState()
-  const [isOpen, setIsOpen] = useState(false)
+  // const [isOpen, setIsOpen] = useState(false)
 
-  const toggle = () => {
-      setIsOpen(!isOpen)
-  }
+  // const toggle = () => {
+  //     setIsOpen(!isOpen)
+  // }
 
   return (
     <>
@@ -82,7 +78,9 @@ export default function App() {
         minDistance={1200}
         maxDistance={2200}
       ></OrbitControls>
-      <Suspense  fallback={null}>
+      <Suspense  fallback={"Loooooooooooading"}>
+
+      <B02  rotation={[0,Math.PI / -2,0]} position={[-150, -200, 0]} />
 
           <Dome />
           <B01 position={[-150, -200, -800]}/>
@@ -93,9 +91,6 @@ export default function App() {
           <B01 position={[-150, -200, 800]}/>
 
         <GoogleEarthMin scale={[1.3,1.3,1.3]}  position={[200, -180, 400]} />
-        {/* <EffectComposer>
-          <BrightnessContrast brightness={0.1} contrast={.2} />
-        </EffectComposer> */}
 
         <Environment preset="warehouse" background="./098_hdrmaps_com_free1.exr"/>
       </Suspense>
@@ -121,8 +116,6 @@ export default function App() {
       </group>
       <ContactShadows frames={1} position={[0, -200, 0]} scale={1000} blur={2} far={1000} />
     </Canvas>
-    <Sidebar isOpen={isOpen} toggle={toggle}></Sidebar>
-    <Navbar toggle={toggle}/>
     </>
   );
 }

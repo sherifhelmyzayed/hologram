@@ -2,10 +2,9 @@ import React, { useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export default function B01(props) {
-    const [hovered, setHover] = useState(false);
 
   const group = useRef();
-  const { nodes, materials } = useGLTF("/BA01-2.glb");
+  const { nodes, materials } = useGLTF("/BA01.glb");
   return (
     <group ref={group} {...props} dispose={null} rotation={[0 , -1.6 , 0]}>
       <mesh
@@ -130,7 +129,6 @@ export default function B01(props) {
         rotation={[Math.PI / 2, 0, 0]}
       />
       <mesh
-      onClick={console.log("Done")}
         castShadow
         receiveShadow
         geometry={nodes.Roof_Top001.geometry}
@@ -1518,4 +1516,4 @@ export default function B01(props) {
   );
 }
 
-useGLTF.preload("/BA01-2.glb");
+useGLTF.preload("/BA01.glb");
