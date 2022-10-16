@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
+import B01GLB from '../GLB/BA01.glb'
+
 export default function B01(props) {
 
   const group = useRef();
-  const { nodes, materials } = useGLTF("/BA01.glb");
+  const { nodes, materials } = useGLTF(B01GLB);
   return (
     <group ref={group} {...props} dispose={null} rotation={[0 , -1.6 , 0]}>
       <mesh
@@ -1516,4 +1518,4 @@ export default function B01(props) {
   );
 }
 
-useGLTF.preload("/BA01.glb");
+useGLTF.preload(B01GLB);

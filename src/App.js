@@ -1,19 +1,19 @@
 import React, { useRef, useState, Suspense } from "react";
 import * as THREE from "three";
 import { Canvas, extend, useLoader } from "@react-three/fiber";
-import { OrbitControls, Environment, ContactShadows, useProgress, Html } from "@react-three/drei";
+import { OrbitControls, Environment,  useProgress, Html } from "@react-three/drei";
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
 import B02 from "./Components/B02";
 import GoogleEarthMin from "./Components/GoogleEarthMin";
 import B01 from "./Components/B01";
+import image360 from './images/3602.jpeg';
 
 extend({ OrbitControls });
 
 
 function Dome() {
-  const colorMap = useLoader(TextureLoader, '/3602.jpeg')
-
+  const colorMap = useLoader(TextureLoader, image360)
   return (
     <group>
       <mesh rotation={[0, 3, 0]}>
@@ -55,29 +55,17 @@ function Box(props) {
 
 const Loader = ()=>{
   const {total} = useProgress()
-
   let cal = total / 154 * 100;
-  console.log(cal);
   return (
     <Html center>downloading {Math.round(cal)} %</Html>
     )
 };
 
 export default function App() {
-
-  // const [floor, setFloor] = useState()
-  // const [isOpen, setIsOpen] = useState(false)
-
-  // const toggle = () => {
-  //     setIsOpen(!isOpen)
-  // }
-
   return (
     <>
       <Canvas
-        shadowMap camera={{ fov: 45, zoom: 1, near: 200, far: 10000, position: [0, 0, 900] }} style={{ height: `100vh` }}>
-        <color attach="background" args={["#696969"]} />
-
+        shadowMap camera={{ fov: 45, zoom: 1, near: 200, far: 10000, position: [0, 500, 1500] }} style={{ height: `100vh` }}>
         <OrbitControls
           enablePan={true}
           enableZoom={true}
@@ -85,20 +73,11 @@ export default function App() {
           autoRotate={true}
           autoRotateSpeed={1}
           zoomSpeed={0.3}
-          minDistance={1200}
-          maxDistance={2200}
+          minDistance={2000}
+          maxDistance={4000}
         ></OrbitControls>
-        {/* <Suspense fallback={<Loader/>}>
-
-          <B02 rotation={[0, Math.PI / -2, 0]} position={[-150, -200, 0]} />
-          <Box position={[-295, -175, 110]} free={true} floor={1} color={"orange"} />
-
-          <B01 position={[-150, -200, -800]} />
-        </Suspense> */}
         <Suspense fallback={<Loader/>}>
-
           <B02 rotation={[0, Math.PI / -2, 0]} position={[-150, -200, 0]} />
-
           <Dome />
           <B01 position={[-150, -200, -800]} />
           <B02 rotation={[0, Math.PI / -2, 0]} position={[-150, -200, 0]} />
@@ -106,9 +85,7 @@ export default function App() {
           <B02 rotation={[0, Math.PI / -2, 0]} position={[-900, -200, 0]} />
           <B01 position={[-900, -200, 800]} />
           <B01 position={[-150, -200, 800]} />
-
           <GoogleEarthMin scale={[1.3, 1.3, 1.3]} position={[200, -180, 400]} />
-
           <Environment preset="warehouse" background="./098_hdrmaps_com_free1.exr" />
         </Suspense>
 
@@ -131,7 +108,6 @@ export default function App() {
           <Box position={[-295, 218, 110]} free={true} floor={14} color={"orange"} />
           <Box position={[-178, 62, 110]} free={true} floor={15} color={"yellow"} />
         </group>
-        <ContactShadows frames={1} position={[0, -200, 0]} scale={1000} blur={2} far={1000} />
       </Canvas>
     </>
   );

@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
+import B02GLB from '../GLB/B02.glb'
+
 export default function B02(props) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/B02.glb");
+  const { nodes, materials } = useGLTF(B02GLB);
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -514,4 +516,4 @@ export default function B02(props) {
   );
 }
 
-useGLTF.preload("/B02.glb");
+useGLTF.preload(B02GLB);

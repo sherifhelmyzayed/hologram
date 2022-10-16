@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
+import googleEarthGLB from '../GLB/GoogleEarth.glb'
+
 export default function GoogleEarthMin(props) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/GoogleEarth.glb");
+  const { nodes, materials } = useGLTF(googleEarthGLB);
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -892,4 +894,4 @@ export default function GoogleEarthMin(props) {
   );
 }
 
-useGLTF.preload("/GoogleEarth.glb");
+useGLTF.preload(googleEarthGLB);
