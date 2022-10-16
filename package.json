@@ -1,7 +1,7 @@
 {
-  "homepage": "https://sherifhelmyzayed.github.io/hologram",
-  "name": "hologram",
+  "name": "md",
   "version": "0.1.0",
+  "homepage": "https://bricksvisuals.com/webapp/river",
   "private": true,
   "dependencies": {
     "@react-three/drei": "^8.10.4",
