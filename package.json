@@ -1,7 +1,7 @@
 {
   "name": "md",
   "version": "0.1.0",
-  "homepage": "https://bricksvisuals.com/webapp/river",
+  "homepage": "https://test.bricksvisuals.com/demo/river",
   "private": true,
   "dependencies": {
     "@react-three/drei": "^8.10.4",
